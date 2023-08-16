@@ -1,17 +1,11 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 import time
 from pages.login_page import Login_page
 from pages.main_page import Main_page
 
 
 
-def test_link_about():
-    s = Service('C:\\chromedriver.exe')
-    driver = webdriver.Chrome(service=s)
-
+def test_link_about(driver):
     print("Start Test")
-
     login = Login_page(driver)
     login.authorization()
 
