@@ -1,5 +1,5 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+import pytest
+
 from pages.cart_page import Cart_page
 from pages.client_confirmation import Client_confirmation_page
 from pages.finish_page import Finish_page
@@ -8,11 +8,7 @@ from pages.main_page import Main_page
 from pages.payment_page import Payment_page
 
 
-# @pytest.mark.run(order=2)
-def test_buy_product_1(set_group):
-    s = Service('C:\\chromedriver.exe')
-    driver = webdriver.Chrome(service=s)
-
+def test_buy_product_1(driver):
     print("Start Test1")
 
     login = Login_page(driver)
@@ -36,11 +32,7 @@ def test_buy_product_1(set_group):
     driver.quit()
 
 
-# @pytest.mark.run(order=1)
-def test_buy_product_2(set_group):
-    s = Service('C:\\chromedriver.exe')
-    driver = webdriver.Chrome(service=s)
-
+def test_buy_product_2(driver):
     print("Start Test2")
 
     login = Login_page(driver)
@@ -55,11 +47,8 @@ def test_buy_product_2(set_group):
     driver.quit()
 
 
-# @pytest.mark.run(order=3)
-def test_buy_product_3():
-    s = Service('C:\\chromedriver.exe')
-    driver = webdriver.Chrome(service=s)
-
+@pytest.mark.run(order=3)
+def test_buy_product_3(driver):
     print("Start Test3")
 
     login = Login_page(driver)
